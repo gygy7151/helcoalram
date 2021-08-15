@@ -11,6 +11,9 @@ html, body {
   width: 100%;
 }
 
+.alramlist {
+  display: flex;
+}
 
 
 header {
@@ -81,6 +84,7 @@ img {
   width: 100%;
   height: auto;
 }
+
 
 
   
