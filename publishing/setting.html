@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko"></html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthCoinAlarm</title>
+    <link rel="stylesheet" type="text/css" href="styles/mainpage.css">
+
+  </head>
+  <body>
+    <header>Setting</header>
+    
+    
+    
+    <button>
+      <a class = "setting" href="setting.html">알람 설정</a>
+    </button>
+    
+
+    <!-- 
+      if(document.getElementById("on").checked) {
+    document.getElementById("off").disabled = true;
+    } 
+    js에서 코드 작성: 체크시 1, 체크안하면 0 -> 1일때만 기상미션 시작 클릭가능하게! -->
+     
+    <div class = "wrap">
+      <input type="checkbox" name="on" value=1 id="on"> Alarm ON </input>
+      <input type="hidden" name="input_check" value='0' id="off"/>
+    </div>
+
+    
+      
+
+    <!-- js: toast 알림 -->
+    
+    <button>
+      <a class = "coinNum">Coin 수</a>
+    </button>
+    
+    
+     <!-- 기상미션 시작 -->
+
+    
+    <button>
+      <a class = "mission" href="mission.html">기상미션 시작!</a>
+    </button>
+    
+
+  </body>
+</html>
