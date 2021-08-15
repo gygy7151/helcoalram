@@ -1,12 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+<html lang="ko"></html>
+  <head>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+    <title>HealthCoinAlarm_Setting</title>
+    <link rel="stylesheet" href="styles/setting.css">
+
+  </head>
+  <body>
+    <header>Setting</header>
     
-</body>
+
+    
+    <button class = "index">
+        <input type="text" name="hour" size = "2"> 시</input>
+    </button>
+
+    <button class = "index">
+        <input type="text" name="minute" size = "2"> 분</input>
+    </button>
+
+
+    <!-- js: toast 알림 -->
+    <button class = "index">
+        <a class = "coinPredict">예상 적립 coin</a>
+    </button>
+
+    
+    <!-- 취소는 0. 설정은 1로 구현! : 1일때만 설정 반영되도록!(JS에서) -->
+    <div class = "btn_wrap">
+        <button class = "btn">
+            <a href="./mainpage.html" value = 0>취소</a>
+        </button>
+    
+        <button class = "btn">
+            <a href="./mainpage.html" value = 1>설정</a>
+        </button>
+    </div>
+
+    
+
+  </body>
 </html>

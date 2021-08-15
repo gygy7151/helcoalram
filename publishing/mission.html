@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko"></html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthCoinAlarm_Mission</title>
+    <link rel="stylesheet" href="styles/mission.css">
+
+  </head>
+  <body>
+    
+    <button class = "start_wrap">
+        <a class = "start_btn">start!</a>
+    </button>
+      
+    <img src="./images/img/이미지 1.png" alt="jogging"/>
+
+    <!-- 여기에 js써서 애니메이션 형태로 구현 가능 / value = 현재칸의수(진행률)/ max = 최대칸의수-->
+    <progress class ="progress_bar" value="1" max="10"></progress> 
+
+    <!-- container에 걸음수/획득한 코인수 js로 구현 가능 -->
+    <div class = "index">
+        현재걸음수<div class = "container"></div>
+    </div>
+    
+    <div class = "index">
+        남은걸음수<div class = "container"></div>
+    </div>
+
+    <div class = "index">
+        획득한 Coin<div class = "container"></div>
+    </div>
+
+  </body>
+</html>
+
+<!-- 게이지 다차면 미션완료화면 넘어가기! :js로 구현가능한가요?
+     start누르면 게이지 채워지는 action
+    현재 걸음수 늘고, 남은 걸음수 줄어드는!  -->
