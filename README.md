@@ -1,6 +1,5 @@
 # helcoalram
 
-- Health Coin Alarm
-- frontend_st
-- Re commits
-- branch
+걷기 미션을 통해 코인도 적립하고
+건강도 챙기는 일석이조 어플리케이션
+헬코알람입니다:)
