@@ -1,46 +1,38 @@
-//알람설정 전 이벤트구현
-// - [x] 알람추가 버튼을 누르면 설정페이지로 이동한다.
-// - [x] 시 분 걸음수를 입력받고 설정버튼을 누르면 팝업창이 뜬다.
-// - [x] 추가되는 알람의 마크업은 '<ul id = "alarm-index">알람 목록</ul>'안에 삽입해야 한다.
-// - [ ] 
+const alarmFrom = document.querySelector('#alarm-time');
+const alarmList = document.querySelector('#alarm-list');
 
-const $ = (selector) => document.querySelector(selector);
+const alarmHours = document.querySelector('.alarm-time__hours');
+const alarmMinutes = document.querySelector('.alarm-time__minutes');
+const alarmSteps = document.querySelector('.alarm-time__steps');
 
-function App() {
-    const setAlarm = () => {
-        const alarmHour = $("#alarm-hour").value;
-        const alarmMinute = $("#alarm-minute").value;
-        const challengeStepNums = $('#challenge-step-nums').value;
 
-        const alarmListTemplate = (alarmHour, alarmMinute, challengeStepNums) => {
-            return `
-                <li class="alarm-list">
-                    <span class = "index">${alarmHour}시 ${alarmMinute}분 ${challengeStepNums}걸음</span>
-                </li>
-                <button type="button>
-                    삭제
-                </button>
-                `;
-        };
-
-        //insert position을 beforeend로 설정
-        $("#alarm-index").insertAdjacentHTML(
-            "beforeend",
-            alarmListTemplate(alarmHour, alarmMinute, challengeStepNums)
-            );
-    }
-    
-    const addAlarm = (e) => {
-        if (confirm("알람설정하시겠습니까?")) {
-            setAlarm();
-        }
-    }
-
-    
-    // 이벤트위임 - 알람항목클릭시 설정페이지로 이동한다.
-    $("#mission-confirm-btn").addEventListener("click", addAlarm);
-    
-    
+function deleteAlarm(event) {
+    const li = event.target.parentElement;
+    li.remove();
 }
 
-App();
+function alarmUpdate(newHours, newMinutes, newSteps) {
+    const li = document.createElement('li');
+    const span = document.createElement('span');
+    li.appendChild(span);
+    span.innerText = `${newHours}시 ${newMinutes}분 알람이 시작됩니다.`;
+    const button = document.createElement('button');
+    li.appendChild(button);
+    button.innerText = `❌`;
+    button.addEventListener('click',deleteAlarm);
+    alarmList.appendChild(li);
+}
+
+function handleAlarmSubmit(event) {
+    event.preventDefault();
+    const newHours = alarmHours.value;
+    alarmHours.value = "";
+    const newMinutes = alarmMinutes.value;
+    alarmMinutes.value = "";
+    const newSteps = alarmSteps.value;
+    alarmSteps.value = "";  
+    alarmUpdate(newHours, newMinutes, newSteps);
+}
+
+alarmFrom.addEventListener('submit',handleAlarmSubmit);
+

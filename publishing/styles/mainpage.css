@@ -49,7 +49,7 @@ header {
   font-weight: 400;
 }
 
-button {
+.button {
   cursor: pointer;
   outline: none;
   transition: .3s;
