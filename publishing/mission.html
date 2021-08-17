@@ -7,6 +7,7 @@
     <title>HealthCoinAlarm_Mission</title>
     <link rel="stylesheet" href="styles/mission.css">
     <script src="js/settingAlarm.js"></script>
+    <script src="js/alarmOn.js"></script>
 
   </head>
   <body>
@@ -22,15 +23,19 @@
 
     <!-- container에 걸음수/획득한 코인수 js로 구현 가능 -->
     <div class = "index">
-        현재걸음수<div class = "container"></div>
+        현재걸음수 <div class = "container" id = "current-step-count"></div>
     </div>
     
     <div class = "index">
-        남은걸음수<div class = "container"></div>
+        남은걸음수 <div class = "container" id = "left-step-count"></div>
     </div>
 
     <div class = "index">
-        획득한 Coin<div class = "container"></div>
+        획득한 Coin <div class = "container" id="coin-count"></div>
+    </div>
+
+    <div class = "index">
+        남은시간 <div class ="container" id = "left-time"></div>
     </div>
     <script src="./js/alarm.js"></script>
   </body>
