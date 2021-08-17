@@ -5,13 +5,10 @@ const alarmHours = document.querySelector('.alarm-time__hours');
 const alarmMinutes = document.querySelector('.alarm-time__minutes');
 const alarmSteps = document.querySelector('.alarm-time__steps');
 
-const hours = [];
-const minutes = [];
-const steps = [];
+const alarms = [];
 
 function saveAlarms() {
-    localStorage.setItem("시간",JSON.stringify(hours));
-    localStorage.setItem("분",JSON.stringify(minutes));
+    localStorage.setItem("알람",JSON.stringify(alarms));
 }
 
 function deleteAlarm(event) {
@@ -39,16 +36,14 @@ function handleAlarmSubmit(event) {
     alarmHours.value = "";
     alarmMinutes.value = "";
     alarmSteps.value = "";
-    hours.push(newHours);
-    minutes.push(newMinutes);
-    steps.push(newSteps);
+    alarms.push({newHours,newMinutes,newSteps});
     alarmUpdate(newHours, newMinutes, newSteps);
     saveAlarms();
 }
 
 alarmForm.addEventListener('submit',handleAlarmSubmit);
 
-const savedAlarms = localStorage.getItem("시간","분");
+const savedAlarms = localStorage.getItem("알람");
 
 if(savedAlarms) {
     const parsedAlarms = JSON.parse(savedAlarms);
