@@ -15,12 +15,14 @@ const $ = (selector) => document.querySelector(selector);
 navigator.geolocation.getCurrentPosition(geoSuccess, geoError);
 
 function MissionStart () {
+    //코인시스템을 다른방식으로 가져가는게 맞다. 현재걸음이랑 겹친다.
 
-
-    const currentStepCount = 0;
     const oldTime = Date.now();
-    const leftStepCount = request.getParameter("challengeStepNums"); // 쿼리스트링값필요
+    const leftStepCount = request.getParameter("newSteps"); // 쿼리스트링값필요
     const coinCount = 0;
+    // 스크립트 시작지점 위도 및 경도값 기록
+    const oldPointlat = position.coords.latitude;
+    const oldPointlng = position.coords.longitude;
 
     const updateCountTemplate = () => {
         // 시간, 걸음수, 코인수 미션페이지에서 변동 결과출력
@@ -29,12 +31,8 @@ function MissionStart () {
         $("#left-step-count").innerText = leftStepCount
         $("#coin-count").innerText = coinCount;
     }
-
+    geoSuccess();
     const geoSuccess = (position) => {
-        
-        // 스크립트 시작지점 위도 및 경도값 기록
-        const oldPointlat = position.coords.latitude;
-        const oldPointlng = position.coords.longitude;
         
         // 업데이트 된 위도 및 경도값 기록
         const presentlat = position.coords.latitude;
@@ -58,15 +56,10 @@ function MissionStart () {
             presentlng = position.coords.longitude;
 
             if(presentlat !== oldPointlat && presentlng !== oldPointlng && sec < 300) {
-                currentStepCount++;
+
                 leftStepCount--;
                 coinCount++; 
                 updateCountTemplate();
-                
-                //시작지점 위도 및 경도값 기록 업데이트
-                oldPointlat = position.coords.latitude;
-                oldPointlng = position.coords.longitude;
-
 
             } else if (presentlat !== oldPointlat && presentlng !== oldPointlng && sec >= 300) {
 
@@ -78,7 +71,7 @@ function MissionStart () {
              else if (leftStepCount == 0) {
 
                 // 남은걸음수가 0이되면 미션성공페이지로 이동
-                location.href="complete.html";
+                location.href="complete.html?";
             } 
 
         }, 2000);
