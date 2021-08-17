@@ -13,7 +13,7 @@
     <img src="./images/icons/alarm_img.png" alt="alram"/>
     
     
-    <button>
+    <button class="button">
       <a class = "setting" href="setting.html">알람 설정</a>
     </button>
     
@@ -34,7 +34,7 @@
 
     <!-- js: toast 알림 -->
     
-    <button>
+    <button class="button">
       <a class = "coinNum">..</a>
     </button>
     
@@ -47,9 +47,14 @@
     </button> -->
 
     
-    
-    <ul id = "alarm-index">알람 목록</ul>
-  
+    <form id="alarm-time">
+      <input required class="alarm-time__hours" placeholder="hours" type="number"> 시
+      <input required class="alarm-time__minutes" placeholder="minutes" type="number"> 분
+      <input required class="alarm-time__steps" placeholder="steps" type="number"> 걸음 수
+      <input required type="submit" value="설정">
+    </form>
+
+    <ul id="alarm-list"></ul>
     
     <script src="js/settingAlarm.js"></script>
   </body>
