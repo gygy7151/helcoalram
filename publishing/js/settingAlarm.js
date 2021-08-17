@@ -43,9 +43,13 @@ function handleAlarmSubmit(event) {
 
 alarmForm.addEventListener('submit',handleAlarmSubmit);
 
-const savedAlarms = localStorage.getItem("알람");
+const savedAlarms = JSON.parse(localStorage.getItem("알람"))
 
 if(savedAlarms) {
     const parsedAlarms = JSON.parse(savedAlarms);
     parsedAlarms.forEach(alarmUpdate);
 }
+
+// function startMission() {
+//     if()
+// }
