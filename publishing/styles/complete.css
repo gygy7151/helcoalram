@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,800;1,500&display=swap');
 
+.section01{position:relative; height:200px; background-color:#2196f3; }
+.section01 canvas { display: block; left:70%; margin-left:-500px; width:1000px; height:200px; z-index: 1; pointer-events: none; }
 
 body {
     background: #2196f3;
