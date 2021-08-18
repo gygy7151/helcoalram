@@ -1,0 +1,3 @@
+const ALARM_STORAGE = 'ALARM_STORAGE'
+
+export { ALARM_STORAGE }
