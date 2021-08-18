@@ -30,12 +30,15 @@ export default class AlarmStore {
       const hour = date.getHours()
       const minute = date.getMinutes()
 
+      console.log(this.alarms)
       const nowAlarm = this.alarms
-        .filter(({ newHours }) => newHours === hour)
-        .filter(({ newMinutes }) => newMinutes === minute)
 
-      nowAlarm.push({ newHours: '3', newMinutes: '4', newSteps: '4' })
+        .filter(({ newHours }) => +newHours === hour)
+        .filter(({ newMinutes }) => +newMinutes === minute)
+      console.log(nowAlarm.length)
+      // nowAlarm.push({ newHours: '3', newMinutes: '4', newSteps: '4' })
 
+    
       location.href = `./mission.html?step=${nowAlarm[0].newSteps}`
     }, 1000)
 
