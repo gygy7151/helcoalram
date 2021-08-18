@@ -18,14 +18,17 @@ function MissionStart() {
   const oldTime = Date.now()
   const params = new URLSearchParams(window.location.search)
   const targetStep = +params.get('step') || 5
+  let nowStep = 1;
   let isInitialzeStatus = true
-  let oldPointlat,
-    oldPointlng = null
 
-  let nowStep = 3
   // 스크립트 시작지점 위도 및 경도값 기록
 
   const geoSuccess = (position) => {
+    
+    // 스크립트 시작 위치로 위도 및 경도값 업데이트
+    const oldPointlat = position.coords.latitude
+    const oldPointlng = position.coords.longitude
+    
     // 5분으로 미션시간 타이머제한
     const timer = setInterval(() => {
       const currentTime = Date.now()
@@ -40,18 +43,19 @@ function MissionStart() {
       const presentlat = position.coords.latitude
       const presentlng = position.coords.longitude
 
-      if (isInitialzeStatus) {
-        oldPointlat = presentlat
-        oldPointlng = presentlng
-        isInitialzeStatus = false
-      }
-
       if (
         presentlat !== oldPointlat ||
-        (presentlng !== oldPointlng && sec < 300)
+        (presentlng !== oldPointlng)
       ) {
-        nowStep = nowStep + 1
-      }
+        nowStep = nowStep + 1;
+        targetStep = targetStep - 1;
+        oldPointlat = position.coords.latitude;
+        oldPointlng = position.coords.longitude;
+      } else if (
+        presentlat == oldPointlat &&
+        presentlng == oldPointlng) {
+          alert("몸을 움직이세요!")
+        } 
       updateCountTemplate(sec)
 
       //    else if (
