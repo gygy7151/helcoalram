@@ -21,8 +21,8 @@ export default class AlarmStore {
     this.AlarmSteps = document.querySelector('.alarm-time__steps')
 
     this.AlarmForm.addEventListener('submit', this.handleAlarmSubmit.bind(this))
-    alarms.forEach(({ newHours, newMinutes, step }) =>
-      this.alarmUpdate(newHours, newMinutes, step)
+    alarms.forEach(({ newHours, newMinutes, newSteps }) =>
+      this.alarmUpdate(newHours, newMinutes, newSteps)
     )
 
     setInterval(() => {
@@ -57,11 +57,11 @@ export default class AlarmStore {
     //   }, 1000)
   }
 
-  alarmUpdate(newHours, newMinutes, steps) {
+  alarmUpdate(newHours, newMinutes, newSteps) {
     const li = document.createElement('li')
     const span = document.createElement('span')
     li.appendChild(span)
-    span.innerText = `${newHours}시 ${newMinutes}분 알람이 시작됩니다.`
+    span.innerText = `${newHours}시 ${newMinutes}분 ${newSteps}걸음미션.`
     const button = document.createElement('button')
     li.appendChild(button)
     button.innerText = `❌`
