@@ -21,14 +21,15 @@ function MissionStart() {
   let nowStep = 1;
   let isInitialzeStatus = true
 
+
   // 스크립트 시작지점 위도 및 경도값 기록
 
   const geoSuccess = (position) => {
-    
+
     // 스크립트 시작 위치로 위도 및 경도값 업데이트
-    const oldPointlat = position.coords.latitude
-    const oldPointlng = position.coords.longitude
-    
+    let oldPointlat = position.coords.latitude
+    let oldPointlng = position.coords.longitude
+
     // 5분으로 미션시간 타이머제한
     const timer = setInterval(() => {
       const currentTime = Date.now()
@@ -40,6 +41,11 @@ function MissionStart() {
       const sec = Math.floor(diff / 1000)
 
       // 현재 이동한 위치로 위도 및 경도값 업데이트
+      // setTimeout(function(){
+      //   location.reload();
+      //   window.removeEventListener('confirm')
+      //   geoSuccess(position);
+      //   },1000); 
       const presentlat = position.coords.latitude
       const presentlng = position.coords.longitude
 
@@ -49,12 +55,13 @@ function MissionStart() {
       ) {
         nowStep = nowStep + 1;
         targetStep = targetStep - 1;
-        oldPointlat = position.coords.latitude;
-        oldPointlng = position.coords.longitude;
+        stateBar();
+
       } else if (
         presentlat == oldPointlat &&
         presentlng == oldPointlng) {
-          alert("몸을 움직이세요!")
+
+          // alert("몸을 움직이세요!")
         } 
       updateCountTemplate(sec)
 
@@ -75,6 +82,7 @@ function MissionStart() {
       //     // 남은걸음수가 0이되면 미션성공페이지로 이동
       //     location.href = 'complete.html?'
       //   }
+      // location.reload();
     }, 2000)
   }
 
@@ -96,6 +104,31 @@ function MissionStart() {
     $('#current-step-count').innerText = nowStep
     //currentStepCount
     $('#left-step-count').innerText = targetStep - nowStep
+  }
+
+  // 진행상태바 색상변환
+  const stateBar = () => {
+    const diffStep = (nowStep/targetStep)*100;
+
+    if(diffStep == 20) {
+      document.getElementById('progress-bar').setAttribute('value', 2);
+    } else if (diffStep == 30) {
+      document.getElementById('progress-bar').setAttribute('value', 3);
+    } else if (diffStep == 40) {
+      document.getElementById('progress-bar').setAttribute('value', 4);
+    } else if (diffStep == 50) {
+      document.getElementById('progress-bar').setAttribute('value', 5);
+    } else if (diffStep == 60) {
+      document.getElementById('progress-bar').setAttribute('value', 6);
+    } else if (diffStep == 70) {
+      document.getElementById('progress-bar').setAttribute('value', 7);
+    } else if (diffStep == 80) {
+      document.getElementById('progress-bar').setAttribute('value', 8);
+    } else if (diffStep == 90) {
+      document.getElementById('progress-bar').setAttribute('value', 9);
+    } else if (diffStep == 100) {
+      document.getElementById('progress-bar').setAttribute('value', 10);
+    } 
   }
 }
 
