@@ -6,26 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HealthCoinAlarm_complete</title>
     <link rel="stylesheet" href="./styles/complete.css">
-    <script>
-      $(document).ready(function(){  
-      //티스토리 공감버튼 이벤트
-      function reAction(){
-    	$("#startButton").trigger("click");
-    	setTimeout(function(){
-  		$("#stopButton").trigger("click");
-    	}, 6000);
-    }
-  
-  $(".uoc-icon").on('click', function(){
-      reAction();
-  }); 
-});
-</script>
+    <script src="./js/complete.js"></script>
+    
+    
     
   </head>
 
   <body>
-    
+    <div class="section01">
+      <canvas id="snow_canvas"></canvas>
+    </div>
     <h2>
         <span>축하합니다!!!</span>  
         <span class="light">misson</span> 
