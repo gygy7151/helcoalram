@@ -11,6 +11,8 @@ export default class AlarmStore {
   AlarmSteps
 
   constructor() {
+    // 여기서 alarms는 로컬스토리지에서 가져온값들을 배열에 담는다.
+    // 해당 객체의 alarms을 불러와야되기 때문에 this를 붙인다.
     const alarms = getLocalstorageItem(ALARM_STORAGE) ?? []
     this.alarms = alarms
     this.AlarmForm = document.querySelector('#alarm-time')
@@ -19,8 +21,10 @@ export default class AlarmStore {
     this.AlarmHours = document.querySelector('.alarm-time__hours')
     this.AlarmMinutes = document.querySelector('.alarm-time__minutes')
     this.AlarmSteps = document.querySelector('.alarm-time__steps')
-
+    // form 태그에 submit 버튼을 클릭하면 해당객체의 handleAlarmSubmit를 실행하고 배열에 담는다.
     this.AlarmForm.addEventListener('submit', this.handleAlarmSubmit.bind(this))
+    // 파라미터로 전달받은 this는 alarmStore의 객체로 출력된다.
+    // 위 전달받은 객체의 요소들을 입력한 key순서대로 key값이 호출되
     alarms.forEach(({ newHours, newMinutes, newSteps }) =>
       this.alarmUpdate(newHours, newMinutes, newSteps)
     )
@@ -30,12 +34,11 @@ export default class AlarmStore {
       const hour = date.getHours()
       const minute = date.getMinutes()
 
-      console.log(this.alarms)
       const nowAlarm = this.alarms
 
         .filter(({ newHours }) => +newHours === hour)
         .filter(({ newMinutes }) => +newMinutes === minute)
-      console.log(nowAlarm.length)
+
       // nowAlarm.push({ newHours: '3', newMinutes: '4', newSteps: '4' })
 
     
