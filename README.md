@@ -59,6 +59,9 @@
 ![%EC%9D%B4%EB%AF%B8%EC%A7%80%20088](https://user-images.githubusercontent.com/55748886/173539339-d7175630-500c-4c6c-9fc7-771b07e4426f.png)
 
 ## 회의록
+### 회의장소는 게더타운으로 선정
+![%EB%A7%88%EC%A7%80%EB%A7%89%ED%9A%8C%EC%9D%98](https://user-images.githubusercontent.com/55748886/173550041-4d9618c5-aae6-4bc9-85a0-3cdf2689f3cc.jpg)
+![%EC%9D%B4%EB%AF%B8%EC%A7%80%20068](https://user-images.githubusercontent.com/55748886/173550051-65882913-99bd-4306-9e69-e9f4b5ae5b26.png)
 
 ### [08.17.21 22:00~]
 ---
